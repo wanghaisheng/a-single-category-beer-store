@@ -1,76 +1,277 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { BlurInText } from "../components/BlurInText.tsx";
 ---
 
 <Layout title="Liquid Death">
-	<div class="min-h-screen flex items-center relative overflow-hidden bg-gray-900 rounded-tr-lg rounded-br-lg">
-		
-        <video autoplay loop muted class="absolute w-auto min-w-full min-h-full max-w-none opacity-50">
-            <source src="https://cdn.shopify.com/videos/c/o/v/d0b5441c4c71495998f0acbc37f9e93c.mp4" type="video/mp4">
+    <div
+        class="min-h-screen flex items-center relative overflow-hidden bg-gray-900"
+    >
+        <video
+            autoplay
+            loop
+            muted
+            class="absolute w-auto min-w-full min-h-full max-w-none opacity-50"
+        >
+            <source
+                src="https://cdn.shopify.com/videos/c/o/v/d0b5441c4c71495998f0acbc37f9e93c.mp4"
+                type="video/mp4"
+            />
             Your browser does not support the video tag.
         </video>
-        
-		<div class="relative z-10 px-4 py-8 bg-black bg-opacity-50 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg">
-			<div class="relative z-10 px-4">
-				<h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-gray-200">
-					DONT BE SCARED
-				</h1>
-				<h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gold">
-					ITS JUST WATER.
-				</h1>
-				<p class="text-xl md:text-2xl mb-8 text-gray-200">
-					Quench your thirst... <span class="font-bold">if you dare</span>
-				</p>
-				<a href="#" class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-3 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden">
-					<span class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"></span>
-					<span class="relative z-10">UNLEASH THE FLOOD, IT'S JUST H2O</span>
-				</a>
-			</div>
-		</div>
+        <div
+            class="relative z-10 px-4 py-8 bg-black bg-opacity-50 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg"
+        >
+            <div class="relative z-10 px-4">
+                <h1
+                    class="text-5xl md:text-7xl font-extrabold mb-4 text-gray-200"
+                >
+                    DON'T BE SCARED
+                </h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gold">
+                    IT'S JUST WATER.
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200">
+                    Quench your thirst... <span class="font-bold"
+                        >if you dare</span>
+                </p>
+                <a
+                    href="#"
+                    class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-3 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
+                >
+                    <span
+                        class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"
+                    ></span>
+                    <span class="relative z-10"
+                        >UNLEASH THE FLOOD, IT'S JUST H2O</span
+                    >
+                </a>
+            </div>
+        </div>
     </div>
+
+    <!-- Parallax Container Start -->
+    <div class="parallax-container relative z-30">
+        <img
+            id="parallax1"
+            src="/extras/holds.avif"
+            alt="Beverage 1"
+            class="absolute top-10 right-10 w-64 object-cover rounded-lg shadow-lg"
+        />
+        <img
+            id="parallax2"
+            src="/extras/murder-your-thirst.avif"
+            alt="Beverage 2"
+            class="absolute top-[800px] left-10 w-64 object-cover rounded-lg shadow-xl"
+        />
+    </div>
+    <!-- Parallax Container End -->
+
+    <!-- Beverages Section Start -->
+    <div class="relative bg-white py-16 px-4 overflow-hidden"> 
+        <BlurInText client:load/>
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
+                <img src="/products/sparkling-water-dark.webp" alt="Beverage 1" class="w-full h-64 object-cover rounded-t-3xl" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Mountain Spring Water</h3>
+                    <p class="text-gray-600 mb-4">Refreshingly pure mountain spring water for ultimate hydration.</p>
+                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
+                <img src="/products/severed-lime.webp" alt="Beverage 2" class="w-full h-64 object-cover rounded-t-3xl" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Sparkling Water</h3>
+                    <p class="text-gray-600 mb-4">Experience the invigorating bubbles of our sparkling water.</p>
+                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
+                <img src="/products/mango-chainsaw.webp" alt="Beverage 3" class="w-full h-64 object-cover rounded-t-3xl" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Flavored Water</h3>
+                    <p class="text-gray-600 mb-4">Add a twist to your hydration with our naturally flavored water.</p>
+                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
+                <img src="/products/berry-alive.webp" alt="Beverage 3" class="w-full h-64 object-cover rounded-t-3xl" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Flavored Water</h3>
+                    <p class="text-gray-600 mb-4">Add a twist to your hydration with our naturally flavored water.</p>
+                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Beverages Section End -->
+
+    <!-- Merchandise Section Start -->
+    <div class="bg-gray-100 py-16 px-4 relative">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                Our Merchandise
+            </h2>
+            <p class="text-xl text-gray-600 mt-4">
+                Explore our exclusive range of merchandise.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="bg-white shadow-lg rounded-3xl overflow-hidden transform hover:scale-105 transition duration-500"
+            >
+                <div class="relative">
+                    <img
+                        src="/path/to/merch1.jpg"
+                        alt="Merchandise 1"
+                        class="w-full h-64 object-cover rounded-t-3xl"
+                    />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                    >
+                        <h3 class="text-2xl font-bold text-white">
+                            Cool T-Shirt
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-white shadow-lg rounded-3xl overflow-hidden transform hover:scale-105 transition duration-500"
+            >
+                <div class="relative">
+                    <img
+                        src="/path/to/merch2.jpg"
+                        alt="Merchandise 2"
+                        class="w-full h-64 object-cover rounded-t-3xl"
+                    />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                    >
+                        <h3 class="text-2xl font-bold text-white">
+                            Stylish Hat
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-white shadow-lg rounded-3xl overflow-hidden transform hover:scale-105 transition duration-500"
+            >
+                <div class="relative">
+                    <img
+                        src="/path/to/merch3.jpg"
+                        alt="Merchandise 3"
+                        class="w-full h-64 object-cover rounded-t-3xl"
+                    />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
+                    >
+                        <h3 class="text-2xl font-bold text-white">
+                            Trendy Hoodie
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Merchandise Section End -->
+
+    <div class="bg-white py-16 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                Customer Testimonials
+            </h2>
+            <p class="text-xl text-gray-600 mt-4">
+                Hear what our satisfied customers have to say.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
+                <p class="text-gray-800 italic mb-4">
+                    "Liquid Death's water is pure and refreshing. I love how
+                    it's sustainably packaged!"
+                </p>
+                <p class="text-gray-600 font-bold">- John Doe</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
+                <p class="text-gray-800 italic mb-4">
+                    "The sparkling water is my favorite! So crisp and bubbly,
+                    it's perfect."
+                </p>
+                <p class="text-gray-600 font-bold">- Jane Smith</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
+                <p class="text-gray-800 italic mb-4">
+                    "I appreciate the clean taste and the eco-friendly approach.
+                    Highly recommended!"
+                </p>
+                <p class="text-gray-600 font-bold">- Alex Johnson</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
+                <p class="text-gray-800 italic mb-4">
+                    "Liquid Death has completely changed how I stay hydrated.
+                    Amazing product!"
+                </p>
+                <p class="text-gray-600 font-bold">- Emily Davis</p>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials Section End -->
+
+    <!-- Sharp Transition to Black -->
+    <div class="h-3 bg-gradient-to-b from-white to-black"></div>
+
+    <!-- Dark Section Start -->
+    <div class="bg-black py-16 px-4">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"
+        >
+            <div class="text-left">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+                    Sell your soul
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam tincidunt augue quis tempus vehicula. Curabitur
+                    aliquam nulla non urna fermentum, sed efficitur odio
+                    ullamcorper. Maecenas et lacinia sapien, sit amet varius
+                    enim.
+                </p>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <img
+                    src="/api/placeholder/600/400"
+                    alt="Hydration Revolution"
+                    class="w-full max-w-md rounded-md shadow-lg"
+                />
+            </div>
+        </div>
+    </div>
+    <!-- Dark Section End -->
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1em;
-		width: 1200px;
-		max-width: calc(100% - 2em);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+    .parallax-container {
+        position: relative;
+        height: 0; /* This container's height will be zero, and its children will use absolute positioning */
+    }
+
+    #parallax1, #parallax2 {
+        transition: transform 0.3s ease-out;
+    }
 </style>
+
+<script>
+    document.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+
+        const parallax1 = document.getElementById("parallax1");
+        const parallax2 = document.getElementById("parallax2");
+
+        if (parallax1)
+            parallax1.style.transform = `translateY(${-scrollPosition / 3}px)`;
+
+        if (parallax2)
+            parallax2.style.transform = `translateY(${-scrollPosition / 6}px)`;
+    });
+</script>
