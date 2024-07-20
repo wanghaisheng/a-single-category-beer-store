@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Liquid Death">
+	<div class="min-h-screen flex items-center relative overflow-hidden bg-gray-900 rounded-tr-lg rounded-br-lg">
+		
+        <video autoplay loop muted class="absolute w-auto min-w-full min-h-full max-w-none opacity-50">
+            <source src="https://cdn.shopify.com/videos/c/o/v/d0b5441c4c71495998f0acbc37f9e93c.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+		<div class="relative z-10 px-4 py-8 bg-black bg-opacity-50 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg">
+			<div class="relative z-10 px-4">
+				<h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-gray-200">
+					DONT BE SCARED
+				</h1>
+				<h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gold">
+					ITS JUST WATER.
+				</h1>
+				<p class="text-xl md:text-2xl mb-8 text-gray-200">
+					Quench your thirst... <span class="font-bold">if you dare</span>
+				</p>
+				<a href="#" class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-3 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden">
+					<span class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"></span>
+					<span class="relative z-10">UNLEASH THE FLOOD, IT'S JUST H2O</span>
+				</a>
+			</div>
+		</div>
+    </div>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1em;
+		width: 1200px;
+		max-width: calc(100% - 2em);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>
