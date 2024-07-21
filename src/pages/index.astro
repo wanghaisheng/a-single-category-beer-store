@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { BlurInText } from "../components/BlurInText.tsx";
-import BeverageCard from "../components/BeverageCard.astro";
+import Layout from "@layouts/Layout.astro";
+import BeverageCard from "@components/BeverageCard.astro";
+import WordPullUp from "@components/WordPullUp";
 ---
 
 <Layout title="Liquid Death">
@@ -70,7 +70,10 @@ import BeverageCard from "../components/BeverageCard.astro";
 
 <!-- Beverages Section Start -->
 <div class="relative bg-white py-16 px-4 overflow-hidden"> 
-    <BlurInText client:load/>
+    <WordPullUp client:load
+    className="text-4xl font-bold tracking-[-0.02em] text-gold md:text-7xl md:leading-[5rem]"
+    words="MURDER YOUR THIRST"
+  />
     <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
         <BeverageCard 
         imageSrc="/products/sparkling-water-dark.webp" 
