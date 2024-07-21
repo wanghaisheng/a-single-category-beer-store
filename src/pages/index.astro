@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { BlurInText } from "../components/BlurInText.tsx";
+import BeverageCard from "../components/BeverageCard.astro";
 ---
 
 <Layout title="Liquid Death">
@@ -20,7 +21,7 @@ import { BlurInText } from "../components/BlurInText.tsx";
             Your browser does not support the video tag.
         </video>
         <div
-            class="relative z-10 px-4 py-8 bg-black bg-opacity-50 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg"
+            class="relative z-10 px-4 py-8 bg-black bg-opacity-70 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg"
         >
             <div class="relative z-10 px-4">
                 <h1
@@ -56,7 +57,7 @@ import { BlurInText } from "../components/BlurInText.tsx";
             id="parallax1"
             src="/extras/holds.avif"
             alt="Beverage 1"
-            class="absolute top-10 right-10 w-64 object-cover rounded-lg shadow-lg"
+            class="absolute top-32 right-10 w-64 object-cover rounded-lg shadow-lg"
         />
         <img
             id="parallax2"
@@ -67,45 +68,37 @@ import { BlurInText } from "../components/BlurInText.tsx";
     </div>
     <!-- Parallax Container End -->
 
-    <!-- Beverages Section Start -->
-    <div class="relative bg-white py-16 px-4 overflow-hidden"> 
-        <BlurInText client:load/>
-        <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
-                <img src="/products/sparkling-water-dark.webp" alt="Beverage 1" class="w-full h-64 object-cover rounded-t-3xl" />
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Mountain Spring Water</h3>
-                    <p class="text-gray-600 mb-4">Refreshingly pure mountain spring water for ultimate hydration.</p>
-                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
-                <img src="/products/severed-lime.webp" alt="Beverage 2" class="w-full h-64 object-cover rounded-t-3xl" />
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Sparkling Water</h3>
-                    <p class="text-gray-600 mb-4">Experience the invigorating bubbles of our sparkling water.</p>
-                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
-                <img src="/products/mango-chainsaw.webp" alt="Beverage 3" class="w-full h-64 object-cover rounded-t-3xl" />
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Flavored Water</h3>
-                    <p class="text-gray-600 mb-4">Add a twist to your hydration with our naturally flavored water.</p>
-                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-3xl overflow-hidden transform transition duration-500">
-                <img src="/products/berry-alive.webp" alt="Beverage 3" class="w-full h-64 object-cover rounded-t-3xl" />
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Flavored Water</h3>
-                    <p class="text-gray-600 mb-4">Add a twist to your hydration with our naturally flavored water.</p>
-                    <a href="#" class="bg-gold text-white py-2 px-4 rounded-lg hover:bg-dgold">Learn More</a>
-                </div>
-            </div>
-        </div>
+<!-- Beverages Section Start -->
+<div class="relative bg-white py-16 px-4 overflow-hidden"> 
+    <BlurInText client:load/>
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+        <BeverageCard 
+        imageSrc="/products/sparkling-water-dark.webp" 
+        title="Sparkling Water"
+        description="Deadly refreshing bubbles from the depths of mountain springs. Hydrate or die trying."
+        link="#"
+       />
+       <BeverageCard 
+        imageSrc="/products/severed-lime.webp" 
+        title="Severed Lime" 
+        description="A citrus explosion that will slice through your thirst with razor-sharp intensity."
+        link="#"
+       />
+       <BeverageCard 
+        imageSrc="/products/mango-chainsaw.webp" 
+        title="Mango Chainsaw"
+        description="Brutally sweet tropical flavor that cuts through boredom. Prepare for a mango massacre."
+        link="#"
+       />
+       <BeverageCard 
+        imageSrc="/products/berry-alive.webp" 
+        title="Berry it Alive" 
+        description="A berry blend so intense, it'll wake the dead. Resurrect your taste buds with every sip."
+        link="#"
+       />
     </div>
-    <!-- Beverages Section End -->
+</div>
+<!-- Beverages Section End -->
 
     <!-- Merchandise Section Start -->
     <div class="bg-gray-100 py-16 px-4 relative">
