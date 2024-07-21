@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 import { cn } from "../utils/cn";
 
@@ -20,6 +21,7 @@ export default function WordPullUp({
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delay: 0.3
       },
     },
   },
@@ -29,11 +31,22 @@ export default function WordPullUp({
   },
   className,
 }: WordPullUpProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
   return (
     <motion.h1
+      ref={ref}
       variants={wrapperFramerProps}
       initial="hidden"
-      animate="show"
+      animate={hasAnimated ? "show" : "hidden"}
       className={cn(
         "font-display text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
         className,

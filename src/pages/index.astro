@@ -15,7 +15,7 @@ import { GridCards } from "@components/MerchCard";
         >
         </img>
         <div
-            class="relative z-10 px-4 py-8 bg-black bg-opacity-70 shadow-2xl backdrop-blur-md rounded-tr-lg rounded-br-lg"
+            class="relative z-10 px-4 py-8 bg-darkish shadow-2xl rounded-tr-lg rounded-br-lg"
         >
             <div class="relative z-10 px-4">
                 <h1
@@ -78,7 +78,7 @@ import { GridCards } from "@components/MerchCard";
        <BeverageCard 
         imageSrc="/products/severed-lime.webp" 
         title="Severed Lime" 
-        description="A citrus explosion that will slice through your thirst with razor-sharp intensity."
+        description="A citrus explosion that will slice through your thirst with razor-sharp intensity, refreshing your senses."
         link="#"
        />
        <BeverageCard 
@@ -98,6 +98,10 @@ import { GridCards } from "@components/MerchCard";
 <!-- Beverages Section End -->
 
     <!-- Merchandise Section Start -->
+    <WordPullUp client:load
+    className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+    words="MERCH"
+  />
     <GridCards />
     <!-- Merchandise Section End -->
 
