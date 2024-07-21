@@ -6,6 +6,8 @@ export default {
 		  colors: {
 			gold: '#978105',
 			dgold: '#6c5c02',
+			darkish: '#171717',
+			greyish: '#404040',
 		  },
 		},
 	  },
