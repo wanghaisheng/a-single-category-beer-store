@@ -11,14 +11,14 @@ const { imageSrc, title, description, link } = Astro.props;
 
 <a
   href={link}
-  class="group block rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-greyish"
+  class="group block overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-greyish"
 >
   <div class="relative">
-    <img src={imageSrc} alt={title} class="w-full h-64 object-cover" />
+    <img src={imageSrc} alt={title} class="w-full h-64 object-cover bg-darkish" />
     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
   </div>
   <div class="p-6 relative">
-    <h3 class="text-2xl font-bold mb-3 text-white text-opacity-60">{title}</h3>
+    <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
     <p class="text-white mb-4 text-opacity-60">{description}</p>
     <div class="flex items-center justify-between text-gold">
       <span class="font-bold">BUY</span>
