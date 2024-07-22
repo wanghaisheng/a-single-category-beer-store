@@ -10,11 +10,9 @@ const SellYourSoulSection = () => {
     "All kinds of other cool shit we can't tell you about yet"
   ];
 
-  const titleRef = React.useRef(null);
   const contentRef = React.useRef(null);
   const buttonRef = React.useRef(null);
 
-  const titleInView = useInView(titleRef, { once: true, amount: 0.5 });
   const contentInView = useInView(contentRef, { once: true, amount: 0.3 });
   const buttonInView = useInView(buttonRef, { once: true, amount: 0.5 });
 
@@ -24,7 +22,7 @@ const SellYourSoulSection = () => {
       <div className="bg-black py-16 px-4 text-white">
         <div className="max-w-7xl mx-auto">
           <WordPullUp words='SELL YOUR SOUL.' className='text-7xl mb-5' />
-          <motion.div 
+          <motion.div
             ref={contentRef}
             initial={{ opacity: 0 }}
             animate={contentInView ? { opacity: 1 } : { opacity: 0 }}
@@ -38,7 +36,7 @@ const SellYourSoulSection = () => {
               <h3 className="text-2xl font-bold mb-4">Membership Benefits:</h3>
               <ul className="space-y-2">
                 {benefits.map((benefit, index) => (
-                  <motion.li 
+                  <motion.li
                     key={index}
                     initial={{ x: -20, opacity: 0 }}
                     animate={contentInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
@@ -57,19 +55,43 @@ const SellYourSoulSection = () => {
               {/* You can add an image here if needed */}
             </div>
           </motion.div>
-          <motion.button
-            ref={buttonRef}
-            initial={{ y: 20, opacity: 0 }}
-            animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-12 px-8 py-4 bg-gold text-white font-bold text-xl rounded-full hover:bg-dgold transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
-          >
-            JOIN THE DARK SIDE
-          </motion.button>
+          <div className="flex flex-wrap gap-5">
+            <motion.button
+              ref={buttonRef}
+              initial={{ y: 20, opacity: 0 }}
+              animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: 'rgba(230, 230, 230, 1)'
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="mt-4 px-6 py-3 text-gray-900 font-bold text-lg border-2 border-gray-700 rounded-sm bg-white transition duration-150 ease-in-out transform"
+            >
+              PAY CASH
+            </motion.button>
+            <motion.button
+              ref={buttonRef}
+              initial={{ y: 20, opacity: 0 }}
+              animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: 'rgba(139, 0, 0, 0.1)',
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="mt-4 px-6 py-3 text-white font-bold text-lg border-2 border-gray-700 rounded-sm bg-black transition duration-150 ease-in-out transform"
+            >
+              <span role="img" aria-label="skull" className="mr-2">💀</span>
+              SELL YOUR SOUL
+            </motion.button>
+          </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };
