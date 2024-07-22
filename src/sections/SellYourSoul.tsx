@@ -18,10 +18,10 @@ const SellYourSoulSection = () => {
 
   return (
     <>
-      <div className="h-3 bg-gradient-to-b from-white to-black"></div>
-      <div className="bg-black py-16 px-4 text-white">
+      <div className="h-3 bg-gradient-to-b from-white to-darkish"></div>
+      <div className="bg-darkish py-16 px-4 text-white">
         <div className="max-w-7xl mx-auto">
-          <WordPullUp words='SELL YOUR SOUL.' className='text-7xl mb-5' />
+          <WordPullUp words='SELL YOUR SOUL' className='text-7xl mb-5' />
           <motion.div
             ref={contentRef}
             initial={{ opacity: 0 }}
@@ -52,7 +52,7 @@ const SellYourSoulSection = () => {
               </ul>
             </div>
             <div className="flex justify-center md:justify-end">
-              {/* You can add an image here if needed */}
+              <img className="w-full rounded-lg object-contain" src="/extras/sellyoursoul.avifs" alt="Sell Your Soul" />
             </div>
           </motion.div>
           <div className="flex flex-wrap gap-5">

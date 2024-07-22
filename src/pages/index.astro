@@ -4,6 +4,17 @@ import BeverageCard from "@components/BeverageCard.astro";
 import WordPullUp from "@components/WordPullUp";
 import { GridCards } from "@components/MerchCard";
 import SellYourSoulSection from "src/sections/SellYourSoul";
+import BlurFade from "@components/BlurFade";
+
+const images = Array.from({ length: 9 }, (_, i) => {
+  const isLandscape = i % 2 === 0;
+  const width = isLandscape ? 800 : 600;
+  const height = isLandscape ? 600 : 800;
+  return {
+    src: `https://picsum.photos/seed/${i + 1}/${width}/${height}`,
+    alt: `Random stock image ${i + 1}`
+  };
+});
 ---
 
 <Layout title="Liquid Death">
@@ -142,6 +153,20 @@ import SellYourSoulSection from "src/sections/SellYourSoul";
     <!-- Testimonials Section End -->
 
     <SellYourSoulSection client:load />
+
+    <section id="photos" class="py-16 bg-white">
+        <div class="columns-2 gap-4 sm:columns-3">
+          {images.map((image, idx) => (
+            <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
+              <img
+                class="mb-4 w-full rounded-lg object-contain"
+                src={image.src}
+                alt={image.alt}
+              />
+            </BlurFade>
+          ))}
+        </div>
+    </section>
 </Layout>
 
 <style>
