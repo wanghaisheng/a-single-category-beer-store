@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import BeverageCard from "@components/BeverageCard.astro";
 import WordPullUp from "@components/WordPullUp";
 import { GridCards } from "@components/MerchCard";
+import SellYourSoulSection from "src/sections/SellYourSoul";
 ---
 
 <Layout title="Liquid Death">
@@ -140,36 +141,7 @@ import { GridCards } from "@components/MerchCard";
     </div>
     <!-- Testimonials Section End -->
 
-    <!-- Sharp Transition to Black -->
-    <div class="h-3 bg-gradient-to-b from-white to-black"></div>
-
-    <!-- Dark Section Start -->
-    <div class="bg-black py-16 px-4">
-        <div
-            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"
-        >
-            <div class="text-left">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
-                    Sell your soul
-                </h2>
-                <p class="text-xl text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nullam tincidunt augue quis tempus vehicula. Curabitur
-                    aliquam nulla non urna fermentum, sed efficitur odio
-                    ullamcorper. Maecenas et lacinia sapien, sit amet varius
-                    enim.
-                </p>
-            </div>
-            <div class="flex justify-center md:justify-end">
-                <img
-                    src="/api/placeholder/600/400"
-                    alt="Hydration Revolution"
-                    class="w-full max-w-md rounded-md shadow-lg"
-                />
-            </div>
-        </div>
-    </div>
-    <!-- Dark Section End -->
+    <SellYourSoulSection client:load />
 </Layout>
 
 <style>
