@@ -18,8 +18,7 @@ const SellYourSoulSection = () => {
 
   return (
     <>
-      <div className="h-3 bg-gradient-to-b from-white to-darkish"></div>
-      <div className="bg-darkish py-16 px-4 text-white">
+      <div className="bg-darkish py-16 px-4 sm:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           <WordPullUp words='SELL YOUR SOUL' className='text-7xl mb-5' />
           <motion.div
@@ -55,41 +54,41 @@ const SellYourSoulSection = () => {
               <img className="w-full rounded-lg object-contain" src="/extras/sellyoursoul.avifs" alt="Sell Your Soul" />
             </div>
           </motion.div>
-          <div className="flex flex-wrap gap-5">
-            <motion.button
-              ref={buttonRef}
-              initial={{ y: 20, opacity: 0 }}
-              animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: 'rgba(230, 230, 230, 1)'
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              className="mt-4 px-6 py-3 text-gray-900 font-bold text-lg border-2 border-gray-700 rounded-sm bg-white transition duration-150 ease-in-out transform"
-            >
-              PAY CASH
-            </motion.button>
-            <motion.button
-              ref={buttonRef}
-              initial={{ y: 20, opacity: 0 }}
-              animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: 'rgba(139, 0, 0, 0.1)',
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              className="mt-4 px-6 py-3 text-white font-bold text-lg border-2 border-gray-700 rounded-sm bg-black transition duration-150 ease-in-out transform"
-            >
-              <span role="img" aria-label="skull" className="mr-2">💀</span>
-              SELL YOUR SOUL
-            </motion.button>
-          </div>
+          <div className="flex mt-5 flex-wrap justify-center md:justify-start gap-2">
+  <motion.button
+    ref={buttonRef}
+    initial={{ y: 20, opacity: 0 }}
+    animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+    transition={{ duration: 0.3 }}
+    whileHover={{
+      scale: 1.05,
+      backgroundColor: 'rgba(230, 230, 230, 1)'
+    }}
+    whileTap={{
+      scale: 0.95,
+    }}
+    className="px-6 py-3 text-gray-900 font-bold text-lg border-2 border-gray-700 rounded-sm bg-white transition duration-150 ease-in-out transform"
+  >
+    PAY CASH
+  </motion.button>
+  <motion.button
+    ref={buttonRef}
+    initial={{ y: 20, opacity: 0 }}
+    animate={buttonInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+    transition={{ duration: 0.3 }}
+    whileHover={{
+      scale: 1.05,
+      backgroundColor: 'rgba(139, 0, 0, 0.1)',
+    }}
+    whileTap={{
+      scale: 0.95,
+    }}
+    className="px-6 py-3 text-white font-bold text-lg border-2 border-gray-700 rounded-sm bg-black transition duration-150 ease-in-out transform"
+  >
+    <span role="img" aria-label="skull" className="mr-2">💀</span>
+    SELL YOUR SOUL
+  </motion.button>
+</div>
         </div>
       </div >
     </>

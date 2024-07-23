@@ -6,15 +6,10 @@ import { GridCards } from "@components/MerchCard";
 import SellYourSoulSection from "src/sections/SellYourSoul";
 import BlurFade from "@components/BlurFade";
 
-const images = Array.from({ length: 9 }, (_, i) => {
-  const isLandscape = i % 2 === 0;
-  const width = isLandscape ? 800 : 600;
-  const height = isLandscape ? 600 : 800;
-  return {
-    src: `https://picsum.photos/seed/${i + 1}/${width}/${height}`,
-    alt: `Random stock image ${i + 1}`
-  };
-});
+const images = Object.entries(import.meta.glob('/public/gallery/*.avif')).map(([path], idx) => ({
+  src: path.replace('/public', ''),
+  alt: `Gallery image ${idx + 1}`
+}));
 ---
 
 <Layout title="Liquid Death">
@@ -68,7 +63,7 @@ const images = Array.from({ length: 9 }, (_, i) => {
     <!-- Parallax Container End -->
 
 <!-- Beverages Section Start -->
-<div class="relative bg-darkish py-16 px-4 overflow-hidden">
+<div class="relative bg-darkish py-16 px-8 overflow-hidden">
     <WordPullUp client:load
     className="text-4xl font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
     words="MURDER YOUR THIRST"
@@ -110,62 +105,20 @@ const images = Array.from({ length: 9 }, (_, i) => {
     <GridCards />
     <!-- Merchandise Section End -->
 
-    <div class="bg-white py-16 px-4">
-        <div class="max-w-7xl mx-auto text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
-                Customer Testimonials
-            </h2>
-            <p class="text-xl text-gray-600 mt-4">
-                Hear what our satisfied customers have to say.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
-                <p class="text-gray-800 italic mb-4">
-                    "Liquid Death's water is pure and refreshing. I love how
-                    it's sustainably packaged!"
-                </p>
-                <p class="text-gray-600 font-bold">- John Doe</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
-                <p class="text-gray-800 italic mb-4">
-                    "The sparkling water is my favorite! So crisp and bubbly,
-                    it's perfect."
-                </p>
-                <p class="text-gray-600 font-bold">- Jane Smith</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
-                <p class="text-gray-800 italic mb-4">
-                    "I appreciate the clean taste and the eco-friendly approach.
-                    Highly recommended!"
-                </p>
-                <p class="text-gray-600 font-bold">- Alex Johnson</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-md shadow-lg">
-                <p class="text-gray-800 italic mb-4">
-                    "Liquid Death has completely changed how I stay hydrated.
-                    Amazing product!"
-                </p>
-                <p class="text-gray-600 font-bold">- Emily Davis</p>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonials Section End -->
-
     <SellYourSoulSection client:load />
 
-    <section id="photos" class="py-16 bg-white">
-        <div class="columns-2 gap-4 sm:columns-3">
-          {images.map((image, idx) => (
-            <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
-              <img
-                class="mb-4 w-full rounded-lg object-contain"
-                src={image.src}
-                alt={image.alt}
-              />
-            </BlurFade>
-          ))}
-        </div>
+    <section id="photos" class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish">
+    <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
+        {images.map((image: { src: string, alt: string }, idx: number) => (
+        <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
+            <img
+            class="mb-4 w-full rounded-lg object-contain"
+            src={image.src}
+            alt={image.alt}
+            />
+        </BlurFade>
+        ))}
+    </div>
     </section>
 </Layout>
 
