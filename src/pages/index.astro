@@ -5,21 +5,26 @@ import WordPullUp from "@components/WordPullUp";
 import { GridCards } from "@components/MerchCard";
 import SellYourSoulSection from "src/sections/SellYourSoul";
 import BlurFade from "@components/BlurFade";
+import HeroSlider from "@components/HeroSlider";
 
 const images = Object.entries(import.meta.glob('/public/gallery/*.avif')).map(([path], idx) => ({
   src: path.replace('/public', ''),
   alt: `Gallery image ${idx + 1}`
 }));
+
+//TODO: PERFORMANCE WISE CHECK IF WE CAN PINPOINT DURATIONS TO NOT HAVE TO FORCE RE-RENDER EVERY TIME TO FIX THE ANIMATION TIMINGS
+const heroImages = [
+  { src: '/hero/hero1.avifs', duration: 2500 },
+  { src: '/hero/hero2.avif', duration: 4800 },
+  { src: '/hero/hero3.avifs', duration: 2900 },
+];
 ---
 
 <Layout title="Liquid Death">
     <div
-        class="min-h-screen flex items-center relative p-8 overflow-hidden"
+        class="min-h-screen flex relative p-8 overflow-hidden"
     >
-        <img
-            src="/hero/hero1.avifs"
-            class="absolute w-auto max-w-none max-h-[500px] opacity-50 rounded-[30px]"
-        >
+        <HeroSlider images={heroImages} client:load />
         </img>
         <div
             class="relative z-10 px-4 py-8 bg-darkish rounded-tr-lg rounded-br-lg"
