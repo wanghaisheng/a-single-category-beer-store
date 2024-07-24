@@ -31,7 +31,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ images }) => {
         <motion.img
           key={`${image.src}?key=${key}-${index}`}
           src={`${image.src}?key=${key}-${index}`}
-          className="w-full h-[500px] object-cover opacity-0 rounded-[30px] absolute inset-0"
+          className="w-full h-screen max-h-[600px] object-cover opacity-0 rounded-[30px] absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: index === currentIndex ? 1 : 0 }}
           transition={{ duration: 0.2 }}
