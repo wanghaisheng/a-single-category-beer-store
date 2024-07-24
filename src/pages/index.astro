@@ -7,52 +7,64 @@ import SellYourSoulSection from "src/sections/SellYourSoul";
 import BlurFade from "@components/BlurFade";
 import HeroSlider from "@components/HeroSlider";
 
-const images = Object.entries(import.meta.glob('/public/gallery/*.avif')).map(([path], idx) => ({
-  src: path.replace('/public', ''),
-  alt: `Gallery image ${idx + 1}`
-}));
+const images = Object.entries(import.meta.glob("/public/gallery/*.avif")).map(
+    ([path], idx) => ({
+        src: path.replace("/public", ""),
+        alt: `Gallery image ${idx + 1}`,
+    }),
+);
 
 //TODO: PERFORMANCE WISE CHECK IF WE CAN PINPOINT DURATIONS TO NOT HAVE TO FORCE RE-RENDER EVERY TIME TO FIX THE ANIMATION TIMINGS
 const heroImages = [
-  { src: '/hero/hero1.avifs', duration: 2500 },
-  { src: '/hero/hero2.avif', duration: 4800 },
-  { src: '/hero/hero3.avifs', duration: 2900 },
+    { src: "/hero/hero1.avifs", duration: 2500 },
+    { src: "/hero/hero2.avif", duration: 4800 },
+    { src: "/hero/hero3.avifs", duration: 2900 },
 ];
 ---
 
 <Layout title="Liquid Death">
     <div
-    class="min-h-screen flex flex-col lg:flex-row relative p-4 lg:p-8 overflow-hidden"
->
-    <div class="w-full h-[420px] lg:h-auto lg:w-2/3 mb-4 lg:mb-0">
-        <HeroSlider images={heroImages} client:load />
-    </div>
-    <div
-        class="relative z-10 px-4 py-6 lg:py-8 bg-darkish w-full lg:w-1/3 flex flex-col justify-center"
+        class="min-h-screen flex flex-col lg:flex-row relative p-4 lg:p-8 overflow-hidden"
     >
-        <div class="relative z-10">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2 lg:mb-4 text-gray-200">
-                DON'T BE SCARED
-            </h1>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 lg:mb-4 text-gold">
-                IT'S JUST WATER.
-            </h2>
-            <p class="text-base sm:text-lg lg:text-xl mb-4 lg:mb-8 text-gray-200">
-                Quench your thirst... <span class="font-bold">if you dare</span>
-            </p>
-            <a
-                href="#"
-                class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
-            >
-                <span class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"></span>
-                <span class="relative z-10">UNLEASH THE FLOOD</span>
-            </a>
+        <div class="w-full h-[420px] lg:h-auto lg:w-2/3 mb-4 lg:mb-0">
+            <HeroSlider images={heroImages} client:load />
+        </div>
+        <div
+            class="relative z-10 px-4 py-6 lg:py-8 bg-darkish w-full lg:w-1/3 flex flex-col justify-center"
+        >
+            <div class="relative z-10">
+                <h1
+                    class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2 lg:mb-4 text-gray-200"
+                >
+                    DON'T BE SCARED
+                </h1>
+                <h2
+                    class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 lg:mb-4 text-gold"
+                >
+                    IT'S JUST WATER.
+                </h2>
+                <p
+                    class="text-base sm:text-lg lg:text-xl mb-4 lg:mb-8 text-gray-200"
+                >
+                    Quench your thirst... <span class="font-bold"
+                        >if you dare</span
+                    >
+                </p>
+                <a
+                    href="#"
+                    class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
+                >
+                    <span
+                        class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"
+                    ></span>
+                    <span class="relative z-10">UNLEASH THE FLOOD</span>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- Parallax Container Start -->
-    <div class="parallax-container relative z-30">
+    <!-- <div class="parallax-container relative z-30">
         <img
             id="parallax1"
             src="/extras/holds.avif"
@@ -65,66 +77,84 @@ const heroImages = [
             alt="Beverage 2"
             class="absolute top-[800px] left-10 w-64 object-cover rounded-lg shadow-xl"
         />
-    </div>
+    </div> -->
     <!-- Parallax Container End -->
 
-<!-- Beverages Section Start -->
-<div class="relative bg-darkish py-16 px-8 overflow-hidden">
-    <WordPullUp client:load
-    className="text-4xl font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
-    words="MURDER YOUR THIRST"
-  />
-    <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-        <BeverageCard 
-        imageSrc="/products/s-water.webp" 
-        title="Sparkling Water"
-        description="Deadly refreshing bubbles from the depths of mountain springs. Hydrate or die trying."
-        link="#"
-       />
-       <BeverageCard 
-        imageSrc="/products/s-lime.webp" 
-        title="Severed Lime" 
-        description="A citrus explosion that will slice through your thirst with razor-sharp intensity, refreshing your senses."
-        link="#"
-       />
-       <BeverageCard 
-        imageSrc="/products/m-chainsaw.webp" 
-        title="Mango Chainsaw"
-        description="Brutally sweet tropical flavor that cuts through boredom. Prepare for a mango massacre."
-        link="#"
-       />
-       <BeverageCard 
-        imageSrc="/products/b-alive.webp" 
-        title="Berry it Alive" 
-        description="A berry blend so intense, it'll wake the dead. Resurrect your taste buds with every sip."
-        link="#"
-       />
+    <!-- Beverages Section Start -->
+    <div class="relative bg-darkish py-16 px-8 overflow-hidden">
+        <WordPullUp
+            client:load
+            className="text-4xl font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+            words="MURDER YOUR THIRST"
+        />
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+            <BeverageCard
+                imageSrc="/products/s-water.webp"
+                title="Sparkling Water"
+                description="Deadly refreshing bubbles from the depths of mountain springs. Hydrate or die trying."
+                link="#"
+            />
+            <BeverageCard
+                imageSrc="/products/s-lime.webp"
+                title="Severed Lime"
+                description="A citrus explosion that will slice through your thirst with razor-sharp intensity, refreshing your senses."
+                link="#"
+            />
+            <BeverageCard
+                imageSrc="/products/m-chainsaw.webp"
+                title="Mango Chainsaw"
+                description="Brutally sweet tropical flavor that cuts through boredom. Prepare for a mango massacre."
+                link="#"
+            />
+            <BeverageCard
+                imageSrc="/products/b-alive.webp"
+                title="Berry it Alive"
+                description="A berry blend so intense, it'll wake the dead. Resurrect your taste buds with every sip."
+                link="#"
+            />
+        </div>
     </div>
-</div>
-<!-- Beverages Section End -->
+    <!-- Beverages Section End -->
 
-    <!-- Merchandise Section Start -->
-    <WordPullUp client:load
-    className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
-    words="MERCH"
-  />
+    <WordPullUp
+        client:load
+        className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+        words="MERCH"
+    />
     <GridCards />
-    <!-- Merchandise Section End -->
 
     <SellYourSoulSection client:load />
 
-    <section id="photos" class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish">
-    <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
-        {images.map((image: { src: string, alt: string }, idx: number) => (
-        <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
-            <img
-            class="mb-4 w-full rounded-lg object-contain"
-            src={image.src}
-            alt={image.alt}
-            />
-        </BlurFade>
-        ))}
-    </div>
+    <WordPullUp
+    client:load
+    className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+    words="TIMEWASTER 5000"
+    />
+
+    <section
+        id="photos"
+        class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish"
+    >
+        <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
+            {
+                images.map(
+                    (image: { src: string; alt: string }, idx: number) => (
+                        <BlurFade
+                            key={image.src}
+                            delay={0.25 + idx * 0.05}
+                            inView
+                            client:load
+                        >
+                            <img
+                                class="mb-4 w-full rounded-lg object-contain"
+                                src={image.src}
+                                alt={image.alt}
+                            />
+                        </BlurFade>
+                    ),
+                )
+            }
+        </div>
     </section>
 </Layout>
 
@@ -133,7 +163,8 @@ const heroImages = [
         position: relative;
         height: 0;
     }
-    #parallax1, #parallax2 {
+    #parallax1,
+    #parallax2 {
         transition: transform 0.3s ease-out;
     }
 </style>
