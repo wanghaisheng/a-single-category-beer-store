@@ -18,9 +18,12 @@ const SellYourSoulSection = () => {
 
   return (
     <>
-      <div className="bg-darkish py-16 px-4 sm:px-8 text-white">
+      <section className="bg-darkish py-10 px-4 sm:px-8 text-white" id='sell-your-soul'>
         <div className="max-w-7xl mx-auto">
-          <WordPullUp words='SELL YOUR SOUL' className='text-7xl mb-5' />
+        <WordPullUp
+        className="text-4xl bg-darkish font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+        words="SELL YOUR SOUL"
+        />
           <motion.div
             ref={contentRef}
             initial={{ opacity: 0 }}
@@ -29,7 +32,7 @@ const SellYourSoulSection = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
             <div className="text-left">
-              <p className="text-xl text-gray-300 mb-6">
+              <p className="text-xl text-gray-300 mb-10 mt-4">
                 Join our exclusive club and unlock a world of dark delights. By selling your soul, you're not losing anything - you're gaining everything.
               </p>
               <h3 className="text-2xl font-bold mb-4">Membership Benefits:</h3>
@@ -90,7 +93,7 @@ const SellYourSoulSection = () => {
   </motion.button>
 </div>
         </div>
-      </div >
+      </section >
     </>
   );
 };

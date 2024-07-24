@@ -1,0 +1,102 @@
+---
+const navItems = [
+  { name: "BEVERAGES", href: "/#beverages" },
+  { name: "MERCH", href: "/#merch" },
+  { name: "SELL YOUR SOUL", href: "/#sell-your-soul" },
+  { name: "TIMEWASTER 5000", href: "/#timewaster-5000" },
+];
+---
+
+<nav class="fixed top-0 left-0 w-[100vw] bg-darkish bg-opacity-80 z-50 backdrop-filter backdrop-blur-lg">
+  <div class="px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/#" class="flex items-center text-xl font-bold text-white">
+          <img src="/logowhite.svg" width="120" class="mr-2" alt="Liquid Death Logo"> 
+        </a>
+      </div>
+      
+      <div class="hidden md:flex items-center">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="ml-8 py-2 px-4 text-gray-100 font-bold bg-transparent hover:bg-gold hover:bg-opacity-20 transition duration-150 ease-in-out rounded"
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+      
+      <div class="md:hidden flex items-center">
+        <button id="menuBtn" class="text-gray-100 hover:text-gray-300 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    id="mobileMenu"
+    class="absolute top-16 left-0 w-full bg-darkish bg-opacity-80 shadow-md backdrop-filter backdrop-blur-lg md:hidden hidden transition-all duration-300 ease-in-out opacity-0 transform -translate-y-4"
+  >
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="block px-4 py-2 text-gray-100 hover:text-indigo-400 hover:bg-gray-800"
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  let isOpen = false;
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      isOpen = !isOpen;
+      if (isOpen) {
+        mobileMenu.classList.remove("hidden");
+        setTimeout(() => {
+          mobileMenu.classList.remove("opacity-0", "-translate-y-4");
+        }, 10);
+      } else {
+        mobileMenu.classList.add("opacity-0", "-translate-y-4");
+        setTimeout(() => {
+          mobileMenu.classList.add("hidden");
+        }, 300);
+      }
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav a');
+  
+  function updateActiveLink() {
+    const scrollPosition = window.scrollY;
+
+    navLinks.forEach((link) => {
+      if (link instanceof HTMLAnchorElement && link.hash) {
+        const section = document.querySelector(link.hash);
+        if (section instanceof HTMLElement) {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            link.classList.add('text-indigo-400', 'font-semibold');
+          } else {
+            link.classList.remove('text-indigo-400', 'font-semibold');
+          }
+        }
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+</script>

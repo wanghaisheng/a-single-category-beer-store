@@ -24,9 +24,9 @@ const heroImages = [
 
 <Layout title="Liquid Death">
     <div
-        class="min-h-screen flex flex-col lg:flex-row relative p-4 lg:p-8 overflow-hidden"
+        class="min-h-screen flex flex-col lg:flex-row relative p-4 lg:p-8 overflow-hidden mt-14"
     >
-        <div class="w-full h-[420px] lg:h-auto lg:w-2/3 mb-4 lg:mb-0">
+        <div class="w-full h-[380px] lg:h-auto lg:w-2/3 mb-4 lg:mb-0">
             <HeroSlider images={heroImages} client:load />
         </div>
         <div
@@ -81,7 +81,7 @@ const heroImages = [
     <!-- Parallax Container End -->
 
     <!-- Beverages Section Start -->
-    <div class="relative bg-darkish py-16 px-8 overflow-hidden">
+    <section class="relative bg-darkish py-16 px-8 overflow-hidden" id="beverages">
         <WordPullUp
             client:load
             className="text-4xl font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
@@ -113,26 +113,28 @@ const heroImages = [
                 link="#"
             />
         </div>
-    </div>
+    </section>
     <!-- Beverages Section End -->
 
+    <section id="merch" class="py-10">
     <WordPullUp
         client:load
         className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
         words="MERCH"
     />
     <GridCards />
+    </section>
 
     <SellYourSoulSection client:load />
 
+    <section id="timewaster-5000" class="pt-16">
     <WordPullUp
     client:load
     className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
     words="TIMEWASTER 5000"
     />
 
-    <section
-        id="photos"
+    <div
         class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish"
     >
         <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
@@ -155,7 +157,8 @@ const heroImages = [
                 )
             }
         </div>
-    </section>
+    </div>
+</section>
 </Layout>
 
 <style>
