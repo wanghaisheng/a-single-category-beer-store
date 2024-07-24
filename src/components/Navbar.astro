@@ -16,13 +16,14 @@ const navItems = [
         </a>
       </div>
       
-      <div class="hidden md:flex items-center">
+      <div class="hidden md:flex items-center space-x-8">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="ml-8 py-2 px-4 text-gray-100 font-bold bg-transparent hover:bg-gold hover:bg-opacity-20 transition duration-150 ease-in-out rounded"
+            class="relative group py-2 px-4 text-gray-100 font-bold transition duration-150 ease-in-out"
           >
             {item.name}
+            <span class="underline-span absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[3px] bg-white group-hover:w-full group-hover:bg-gold transition-all duration-500 ease-in-out rounded-full"/>
           </a>
         ))}
       </div>
@@ -30,7 +31,7 @@ const navItems = [
       <div class="md:hidden flex items-center">
         <button id="menuBtn" class="text-gray-100 hover:text-gray-300 focus:outline-none">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
@@ -44,59 +45,67 @@ const navItems = [
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="block px-4 py-2 text-gray-100 hover:text-indigo-400 hover:bg-gray-800"
+        class="block px-4 py-2 text-gray-100 hover:bg-dgold hover:bg-opacity-30 relative group"
       >
         {item.name}
+        <span class="underline-span absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gold group-hover:w-full transition-all duration-500 ease-in-out"/>
       </a>
     ))}
   </div>
 </nav>
 
 <script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  let isOpen = false;
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      isOpen = !isOpen;
-      if (isOpen) {
-        mobileMenu.classList.remove("hidden");
-        setTimeout(() => {
-          mobileMenu.classList.remove("opacity-0", "-translate-y-4");
-        }, 10);
-      } else {
-        mobileMenu.classList.add("opacity-0", "-translate-y-4");
-        setTimeout(() => {
-          mobileMenu.classList.add("hidden");
-        }, 300);
-      }
-    });
-  }
-
-  const navLinks = document.querySelectorAll('nav a');
   
-  function updateActiveLink() {
-    const scrollPosition = window.scrollY;
-
-    navLinks.forEach((link) => {
-      if (link instanceof HTMLAnchorElement && link.hash) {
-        const section = document.querySelector(link.hash);
-        if (section instanceof HTMLElement) {
-          const sectionTop = section.offsetTop - 100;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            link.classList.add('text-indigo-400', 'font-semibold');
-          } else {
-            link.classList.remove('text-indigo-400', 'font-semibold');
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    let isOpen = false;
+  
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        isOpen = !isOpen;
+        if (isOpen) {
+          mobileMenu.classList.remove("hidden");
+          setTimeout(() => {
+            mobileMenu.classList.remove("opacity-0", "-translate-y-4");
+          }, 10);
+        } else {
+          mobileMenu.classList.add("opacity-0", "-translate-y-4");
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 300);
+        }
+      });
+    }
+  
+    const navLinks = document.querySelectorAll('nav a');
+  
+    function updateActiveLink() {
+      const scrollPosition = window.scrollY;
+  
+      navLinks.forEach((link, index) => {
+        if (link instanceof HTMLAnchorElement && link.hash) {
+          const section = document.querySelector(link.hash);
+          if (section instanceof HTMLElement) {
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
+  
+            const underlineSpan = link.querySelector('.underline-span');
+  
+            if (underlineSpan) {
+              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                underlineSpan.classList.remove('w-0');
+                underlineSpan.classList.add('w-full');
+              } else {
+                underlineSpan.classList.remove('w-full');
+                underlineSpan.classList.add('w-0');
+              }
+            }
           }
         }
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveLink);
-  updateActiveLink();
-</script>
+      });
+    }
+  
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  </script>
