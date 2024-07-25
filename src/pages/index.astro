@@ -51,7 +51,7 @@ const heroImages = [
                     >
                 </p>
                 <a
-                    href="#"
+                    href="#beverages"
                     class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
                 >
                     <span
@@ -92,25 +92,25 @@ const heroImages = [
                 imageSrc="/products/s-water.webp"
                 title="Sparkling Water"
                 description="Deadly refreshing bubbles from the depths of mountain springs. Hydrate or die trying."
-                link="#"
+                link="/oops"
             />
             <BeverageCard
                 imageSrc="/products/s-lime.webp"
                 title="Severed Lime"
                 description="A citrus explosion that will slice through your thirst with razor-sharp intensity, refreshing your senses."
-                link="#"
+                link="/oops"
             />
             <BeverageCard
                 imageSrc="/products/m-chainsaw.webp"
                 title="Mango Chainsaw"
                 description="Brutally sweet tropical flavor that cuts through boredom. Prepare for a mango massacre."
-                link="#"
+                link="/oops"
             />
             <BeverageCard
                 imageSrc="/products/b-alive.webp"
                 title="Berry it Alive"
                 description="A berry blend so intense, it'll wake the dead. Resurrect your taste buds with every sip."
-                link="#"
+                link="/oops"
             />
         </div>
     </section>
@@ -128,37 +128,26 @@ const heroImages = [
     <SellYourSoulSection client:load />
 
     <section id="timewaster-5000" class="pt-16">
-    <WordPullUp
-    client:load
-    className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
-    words="TIMEWASTER 5000"
-    />
-
-    <div
-        class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish"
-    >
-        <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
-            {
-                images.map(
-                    (image: { src: string; alt: string }, idx: number) => (
-                        <BlurFade
-                            key={image.src}
-                            delay={0.25 + idx * 0.05}
-                            inView
-                            client:load
-                        >
-                            <img
-                                class="mb-4 w-full rounded-lg object-contain"
-                                src={image.src}
-                                alt={image.alt}
-                            />
-                        </BlurFade>
-                    ),
-                )
-            }
+        <WordPullUp
+            client:load
+            className="text-4xl bg-darkish text-right font-bold tracking-[-0.02em] text-white md:text-7xl md:leading-[5rem]"
+            words="TIMEWASTER 5000"
+        />
+    
+        <div class="py-8 sm:py-16 px-4 sm:px-8 md:px-16 lg:px-32 bg-darkish">
+            <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
+                {images.map((image: { src: string; alt: string }, idx: number) => (
+                    <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
+                        <img
+                            class="mb-4 w-full rounded-lg object-contain"
+                            src={image.src}
+                            alt={image.alt.replace(/(\bimage\b|\bphoto\b|\bpicture\b)/gi, "").trim()}
+                        />
+                    </BlurFade>
+                ))}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 </Layout>
 
 <style>

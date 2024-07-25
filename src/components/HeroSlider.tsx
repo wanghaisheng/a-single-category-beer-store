@@ -35,7 +35,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ images }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: index === currentIndex ? 1 : 0 }}
           transition={{ duration: 0.2 }}
-          alt={`Slideshow image ${index + 1}`}
+          alt={`Visual ${index + 1}`}
         />
       ))}
     </div>

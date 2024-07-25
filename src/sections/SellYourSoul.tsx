@@ -71,6 +71,7 @@ const SellYourSoulSection = () => {
       scale: 0.95,
     }}
     className="px-6 py-3 text-gray-900 font-bold text-lg border-2 border-gray-700 rounded-sm bg-white transition duration-150 ease-in-out transform"
+    onClick={() => window.location.href = '/oops'}
   >
     PAY CASH
   </motion.button>
@@ -87,6 +88,7 @@ const SellYourSoulSection = () => {
       scale: 0.95,
     }}
     className="px-6 py-3 text-white font-bold text-lg border-2 border-gray-700 rounded-sm bg-black transition duration-150 ease-in-out transform"
+    onClick={() => window.location.href = '/oops'}
   >
     <span role="img" aria-label="skull" className="mr-2">💀</span>
     SELL YOUR SOUL

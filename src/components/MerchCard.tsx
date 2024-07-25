@@ -6,19 +6,19 @@ export const GridCards = () => {
         <div className="bg-neutral-900 p-4 text-neutral-50 md:p-12">
             <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-neutral-700 border border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Liquid Death X Metallica Sweatshorts"
                     price="70"
                     src="/merch/metallicashorts.webp"
                 />
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Reusable Slaughter Bottle"
                     price="51"
                     src="/merch/blackBottle.webp"
                 />
                 <Card
-                    href="#"
+                    href="/oops"
                     title="The Flasket"
                     price="46"
                     src="/merch/theFlasket.webp"
@@ -26,19 +26,19 @@ export const GridCards = () => {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-neutral-700 border-x border-b border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Chainsaw Massacre Hat"
                     price="44"
                     src="/merch/capChainsaw.webp"
                 />
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Nixon Death Clock III"
                     price="290"
                     src="/merch/nixonIIIclock.webp"
                 />
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Liquid Death X PSD Boxer"
                     price="26"
                     src="/merch/liquidXpsd.webp"
@@ -46,13 +46,13 @@ export const GridCards = () => {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-neutral-700 border-x border-b border-neutral-700 md:grid-cols-3 md:divide-x md:divide-y-0">
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Kill Murray Boonie Hat"
                     price="11 min"
                     src="/merch/killmurray.webp"
                 />
                 <Card
-                    href="#"
+                    href="/oops"
                     title="Vicious Death Hat"
                     price="21 min"
                     src="/merch/viciousDeath.webp"
@@ -77,7 +77,6 @@ const Card = ({
     return (
         <a
             href={href}
-            target="_blank"
             className="group relative flex h-56 flex-col justify-end overflow-hidden p-6 transition-colors hover:bg-neutral-950 md:h-80 md:p-9"
         >
             <div className="absolute left-3 top-5 z-10 flex items-center gap-1.5 text-xs uppercase text-neutral-400 transition-colors duration-500 group-hover:text-neutral-50">
@@ -119,7 +118,7 @@ const Corners = () => (
 const TitleCard = () => {
     return (
         <a
-            href="#"
+            href="/oops"
             target="_blank"
             className="group relative flex h-56 flex-col justify-between bg-neutral-950 p-6 md:h-80 md:p-9"
         >
