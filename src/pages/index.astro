@@ -5,7 +5,8 @@ import WordPullUp from "@components/WordPullUp";
 import { GridCards } from "@components/MerchCard";
 import SellYourSoulSection from "src/sections/SellYourSoul";
 import BlurFade from "@components/BlurFade";
-import HeroSlider from "@components/HeroSlider";
+import HeroSlider from "@components/HeroSlider.astro";
+import Image from "astro/components/Image.astro";
 
 const images = Object.entries(import.meta.glob("/public/gallery/*.avif")).map(
     ([path], idx) => ({
@@ -14,11 +15,9 @@ const images = Object.entries(import.meta.glob("/public/gallery/*.avif")).map(
     }),
 );
 
-//TODO: PERFORMANCE WISE CHECK IF WE CAN PINPOINT DURATIONS TO NOT HAVE TO FORCE RE-RENDER EVERY TIME TO FIX THE ANIMATION TIMINGS
 const heroImages = [
     { src: "/hero/hero1.avifs", duration: 2500 },
-    { src: "/hero/hero2.avif", duration: 4800 },
-    { src: "/hero/hero3.avifs", duration: 2900 },
+    { src: "/hero/hero2.avif", duration: 3003 },
 ];
 ---
 
@@ -34,28 +33,28 @@ const heroImages = [
         >
             <div class="relative z-10">
                 <h1
-                    class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2 lg:mb-4 text-gray-200"
+                class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2 lg:mb-4 text-gray-200"
+            >
+                DON'T BE SCARED
+            </h1>
+            <h2
+                class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 lg:mb-4 text-gold"
+            >
+                IT'S JUST WATER.
+            </h2>
+            <p
+                class="text-base sm:text-lg lg:text-xl mb-4 lg:mb-8 text-gray-200"
+            >
+                Quench your thirst... <span class="font-bold"
+                    >if you dare</span
                 >
-                    DON'T BE SCARED
-                </h1>
-                <h2
-                    class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 lg:mb-4 text-gold"
-                >
-                    IT'S JUST WATER.
-                </h2>
-                <p
-                    class="text-base sm:text-lg lg:text-xl mb-4 lg:mb-8 text-gray-200"
-                >
-                    Quench your thirst... <span class="font-bold"
-                        >if you dare</span
-                    >
-                </p>
+            </p>
                 <a
                     href="#beverages"
-                    class="relative inline-block rounded-md hover:bg-dgold text-gray-200 font-bold py-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
+                    class="relative inline-block rounded-md border-[3px] hover:bg-dgold text-gray-200 font-bold py-2 px-6 transition duration-300 ease-in-out transform hover:scale-105 group overflow-hidden"
                 >
                     <span
-                        class="absolute inset-0 bg-gold transition duration-300 ease-in-out transform group-hover:translate-x-full"
+                        class="absolute inset-0 bg-darkish  transition duration-300 ease-in-out transform group-hover:translate-x-full"
                     ></span>
                     <span class="relative z-10">UNLEASH THE FLOOD</span>
                 </a>
@@ -138,10 +137,13 @@ const heroImages = [
             <div class="columns-1 sm:columns-2 md:columns-3 gap-4">
                 {images.map((image: { src: string; alt: string }, idx: number) => (
                     <BlurFade key={image.src} delay={0.25 + idx * 0.05} inView client:load>
-                        <img
+                        <Image
                             class="mb-4 w-full rounded-lg object-contain"
                             src={image.src}
                             alt={image.alt.replace(/(\bimage\b|\bphoto\b|\bpicture\b)/gi, "").trim()}
+                            height=400
+                            width=600
+                            loading="lazy"
                         />
                     </BlurFade>
                 ))}
@@ -150,7 +152,7 @@ const heroImages = [
     </section>
 </Layout>
 
-<style>
+<!-- <style>
     .parallax-container {
         position: relative;
         height: 0;
@@ -159,9 +161,9 @@ const heroImages = [
     #parallax2 {
         transition: transform 0.3s ease-out;
     }
-</style>
+</style> -->
 
-<script>
+<!-- <script>
     document.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY;
 
@@ -174,4 +176,4 @@ const heroImages = [
         if (parallax2)
             parallax2.style.transform = `translateY(${-scrollPosition / 6}px)`;
     });
-</script>
+</script> -->

@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 interface Props {
   imageSrc: string;
   title: string;
@@ -14,15 +16,36 @@ const { imageSrc, title, description, link } = Astro.props;
   class="group block overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl border border-greyish"
 >
   <div class="relative">
-    <img src={imageSrc} alt={title} class="w-full h-64 object-cover bg-darkish" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+    <Image
+      src={imageSrc}
+      alt={title}
+      height="400"
+      width="600"
+      loading="lazy"
+      class="w-full h-64 object-cover bg-darkish"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"
+    >
+    </div>
   </div>
   <div class="p-6 relative">
-    <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
+    <h2 class="text-2xl font-bold mb-3 text-white">{title}</h2>
     <p class="text-white mb-4 text-opacity-60">{description}</p>
     <div class="flex items-center justify-between text-gold">
       <span class="font-bold">BUY</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform transition-transform duration-300 group-hover:translate-x-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transform transition-transform duration-300 group-hover:translate-x-2"
+      >
         <path d="M5 12h14"></path>
         <path d="m12 5 7 7-7 7"></path>
       </svg>

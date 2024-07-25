@@ -35,7 +35,7 @@ const SellYourSoulSection = () => {
               <p className="text-xl text-gray-300 mb-10 mt-4">
                 Join our exclusive club and unlock a world of dark delights. By selling your soul, you're not losing anything - you're gaining everything.
               </p>
-              <h3 className="text-2xl font-bold mb-4">Membership Benefits:</h3>
+              <h2 className="text-2xl font-bold mb-4">Membership Benefits:</h2>
               <ul className="space-y-2">
                 {benefits.map((benefit, index) => (
                   <motion.li

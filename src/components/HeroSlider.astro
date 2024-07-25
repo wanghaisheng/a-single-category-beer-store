@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+
+interface Image {
+  src: string;
+  duration: number;
+}
+
+interface Props {
+  images: Image[];
+}
+
+const { images } = Astro.props;
+---
+
+<div id="heroSlider" class="slideshow-container relative w-full h-auto">
+  {images.map((image, index) => (
+    <div
+      class={`absolute inset-0 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+      data-duration={image.duration}
+    >
+      <Image
+        src={image.src}
+        alt={`Visual ${index + 1}`}
+        width="544"
+        height="557"
+        class="w-full h-screen max-h-[600px] object-cover rounded-[30px]"
+        loading={index === 0 ? "eager" : "lazy"}
+        decoding={index === 0 ? "sync" : "async"}
+        fetchpriority={index === 0 ? "high" : "low"}
+      />
+    </div>
+  ))}
+</div>
+
+<script>
+  import { animate } from 'framer-motion';
+
+  const heroSlider = document.getElementById('heroSlider');
+  if (heroSlider) {
+    const images = Array.from(heroSlider.children);
+    let currentIndex = 0;
+
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      animate(images[currentIndex], { opacity: 0 }, { duration: 0.2 });
+      animate(images[nextIndex], { opacity: 1 }, { duration: 0.2 });
+      currentIndex = nextIndex;
+    }
+
+    function startSlideshow() {
+      const currentImage = images[currentIndex] as HTMLElement;
+      const durationAttr = currentImage.getAttribute('data-duration');
+      const duration = durationAttr ? parseInt(durationAttr) : 3000;
+      setTimeout(() => {
+        nextSlide();
+        startSlideshow();
+      }, duration);
+    }
+
+    startSlideshow();
+  } else {
+    console.error('Hero slider element not found');
+  }
+</script>
