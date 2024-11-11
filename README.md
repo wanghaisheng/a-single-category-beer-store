@@ -1,5 +1,8 @@
 # 🌊💀 Liquid Death Landing Page Redesign
 
+2024-11-11
+
+
 ## 📜 About This Project
 
 This project is a creative redesign of the Liquid Death landing page. It aims to capture the essence of the brand while exploring new design possibilities and user experiences. Built with modern web technologies, this redesign showcases the power of combining Astro, Tailwind CSS, React, and Framer Motion.
